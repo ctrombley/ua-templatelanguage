@@ -1,7 +1,8 @@
 module.exports = function(parser, contents) { 
-	var bits = contents.split(/\s+/),  // ["for", "item", "in", "items"]
+	var bits = contents.split(/\s+/),  // ["for", "item", "in", "items" "reversed"]
 		contextTarget = bits[1],
 		lookupContextVariable = parser.lookup(bits[3]),
+		reversed = bits[4] === 'reversed',
 		forBody,
 		emptyBody;
 
@@ -14,13 +15,21 @@ module.exports = function(parser, contents) {
 		var target = lookupContextVariable(context),
 			output = [],
 			merged = [],
-			loopContext;
+			loopContext,
+			len = target.length,
+			i = loopStart = reversed ? len-1 : 0,
+			loopCondition = reversed 
+				? function() { return i >= 0 } 
+				: function() { return i < len },
+			loopDone = reversed 
+				? function() { i-- } 
+				: function() { i++ };
 
-		if (!target || !target.length) {
+		if (!target || !len) {
 			return emptyBody ? emptyBody(context) : ''
 		}
 
-		for (var i = 0, len = target.length; i < len; ++i) {
+		for ( ; loopCondition(); loopDone() ) {
 			loopContext = Object.create(context);
 			loopContext[contextTarget] = target[i];
 			loopContext.forloop = {
