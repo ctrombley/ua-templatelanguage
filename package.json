@@ -16,5 +16,8 @@
     "url": "https://github.com/ctrombley/ua-templatelanguage.git"
   },
   "author": "Chris Trombley",
-  "license": "MIT"
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  }
 }
