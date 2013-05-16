@@ -18,8 +18,8 @@ and the following code:
 
 ```javascript
 var language = require('ua-templatelanguage')
-  , if_tag = require('your-if-tag')
-  , for_tag = require('your-for-tag')
+  , if_tag = require('if-tag')
+  , for_tag = require('for-tag')
   , compile
   , template
 
@@ -45,7 +45,7 @@ we should render something like this:
 hello world
 ```		
 
-## Areas for improvement: ##
+### Areas for improvement: ###
 * nested tags.
 * trim unnecessary newlines.
 
