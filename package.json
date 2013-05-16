@@ -1,0 +1,20 @@
+{
+  "name": "ua-templatelanguage",
+  "version": "0.0.0",
+  "description": "A slightly more capable template parser, written as part of a technical evaluation.",
+  "main": "index.js",
+  "dependencies": {
+    "ua-dotpathlookup": "~0.0.0",
+    "ua-simpletemplate": "~0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ctrombley/ua-templatelanguage.git"
+  },
+  "author": "Chris Trombley",
+  "license": "MIT"
+}
